@@ -3,7 +3,6 @@ from random import choice
 
 app = Flask(__name__)
 
-
 class WordManager:
     words = [
         'miting', 'tălpoi', 'belonid', 'carbonado', 'lobar', 'reclamant', 'relansare', 'africanolog', 'halomorfoză',
@@ -31,6 +30,10 @@ class WordManager:
                     cls.cache.pop()
                 return word
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html', word=WordManager.getWord())
+
+@app.route('/api/', methods=['GET'])
+def api_word():
+    return WordManager.getWord()
