@@ -1,23 +1,12 @@
 from flask import Flask, render_template
 from random import choice
+from json import load
 
 app = Flask(__name__)
 
 class WordManager:
-    words = [
-        'miting', 'tălpoi', 'belonid', 'carbonado', 'lobar', 'reclamant', 'relansare', 'africanolog', 'halomorfoză',
-        'tus', 'stârpitură', 'interspecific', 'cremnofobie', 'fularda', 'scuzare', 'mârlănoi', 'acqua-tofana',
-        'autentificat', 'imaterializare', 'factor', 'înmrejuit', 'lastic', 'tărâța', 'vutcă', 'bâzgâli', 'capturat',
-        'concomitență', 'supraînălțare', 'bigrilă', 'norveg', 'astenologie', 'proteiform', 'canci', 'jegăl', 'coerent',
-        'zolniță', 'manualitate', 'transformaționalism', 'autodidact', 'piroscaf', 'timpanotom', 'ciao', 'cârav',
-        'multimetru', 'sveter', 'unidimensionare', 'șoimar', 'vestiment', 'prindoi', 'lagunar', 'zupăire', 'strungar',
-        'caut', 'sociolect', 'cartonaj', 'acribie', 'frânghienică', 'vegetal', 'paleontologic', 'pergamentos', 'protestuit',
-        'periodologie', 'melodramatic', 'brodnic', 'șufărire', 'termoluminiscență', 'celebrare', 'șoală', 'keriterapie',
-        'numerabil', 'cramă', 'superpoziție', 'ruguș', 'stagflație', 'adins', 'reinventat', 'adăugat', 'memorie', 'abdomen',
-        'bioenergoterapeut', 'mezdrea', 'ghiovăsi', 'interdicție', 'rheum', 'tărâcioară', 'tomograf', 'ialomițeancă',
-        'moderantism', 'venoscleroză', 'cârstitel', 'răzvesti', 'tetanic', 'strâmbet', 'hâțâi', 'explosiv', 'scârpălui',
-        'titlu', 'fosforilare', 'reînregistra', 'petitio'
-    ]
+    file = open('cuvinte.json')
+    words = load(file)
     cache = []
 
     @classmethod
